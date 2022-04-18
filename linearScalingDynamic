@@ -1,0 +1,36 @@
+			int minVal;
+      int maxVal;
+      int currentAdjustedVal;
+      int maxBound; // In terms of something like distance, this is the farthest away the end point is allowed to be
+      int increaseInterval; // The amount that currentAdjustedVal increases when it passes each interval between the two end points
+      int innerBound; // In terms of something like distance, this is the starting point to maxBound's end point
+      
+      int closeInterval; // the closest point where scaling has a minimum value
+      int farInterval; // The end point where scaling flattens out
+      
+      if (minVal > maxVal)
+				minVal = maxVal;
+			if (maxVal < minVal)
+				maxVal = minVal;
+         
+     increaseInterval = (maxBound - closeInterval) / (maxVal - minVal);
+        
+     // Sanity checks
+     if (distance > maxBound)
+        distance = maxBound;
+     
+     if (distance < closeInterval)
+        distance = closeInterval;
+        
+        
+     intervalCount = ((maxBound - closeInterval) / increaseInterval);
+     
+     currentAdjustedVal = minVal + intervalCount;
+     
+    // Sanity checks
+	  if (currentAdjustedVal < minVal)
+		  currentAdjustedVal = minVal;
+	  else if (currentAdjustedVal > maxVal)
+		  currentAdjustedVal = maxVal;
+      
+    return currentVal;
