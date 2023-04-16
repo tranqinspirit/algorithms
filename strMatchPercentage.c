@@ -1,3 +1,4 @@
+// matchThreshold is 0.0-1.0f for 0% to 100%
 float strMatchPercentage(char* longer, char* shorter, int length_longer, int length_shorter, int lengthdiff, float matchThreshhold)
 {
 	int i, j;
